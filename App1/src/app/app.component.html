@@ -1,0 +1,44 @@
+<h1>
+  Welcome to {{title.concat(2)}}!
+</h1>
+<!--//Attribut HTML permettant la personnalisation de l'attribut-->
+<!--[customPlaceHolder]="contenuDiv"-->
+<!--l'attribut holder créé peut être récupérer par des components avec la commande @Input("holder")-->
+
+<div class="header"><h2></h2></div>
+<div class="menu">
+  <ul>
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/contact">Contact</a></li>
+  </ul>
+</div>
+<!--permet de charger des components référencés dans les route du module.-->
+<router-outlet></router-outlet>
+<app-search-component
+        holder="New Holder"
+        (onSearch)="FonctionDeRecherche($event)" (onClear)="FunctiondEscape()">
+</app-search-component>
+<app-data-table [data]="DonneesArray" [fields]="datafields"></app-data-table>
+<div *ngFor="let variabl of DonneesArray">
+  <p>{{variabl.nom}}</p>
+</div>
+<app-hide-show-component></app-hide-show-component>
+<!--les parenthèses lisent l'évènements en liaison avec le component.ts-->
+les crochet
+<!--Directive-->
+<input type="text" [(ngModel)]="inputValue">
+<p>{{inputValue}}</p>
+
+<!--Les crochets lisent la valeur uniquement dans le HTML-->
+<!--Directive-->
+<input [type]='InputType' [disabled]="Disabled" [style.backgroundColor]="backgroundColor"><!--faille de securité-->
+<div [ngStyle]="{'height':'500px','width':'500px',backgroundColor:'blue'}" [innerHTML]="contenuDiv"></div>
+
+<!--Evenements-->
+<button (click)="contenuDiv='Nouveau contenu'">Valider</button>
+<button (click)="onclick()">Valider2</button>
+
+<!--Faire 3 variables différente pour chacun des éléments-->
+<div *ngIf="isVisible" (mouseleave)="toggleForm()" (mouseenter)="toggleForm()" [ngClass]="{carre:!isCircle,circle:isCircle}">Si carre pas cercle</div>
+<div *ngIf="isVisible" (mouseleave)="toggleForm()" (mouseenter)="toggleForm()" [ngClass]="{carre:!isCircle,circle:isCircle}">Si carre pas cercle</div>
+<div *ngIf="isVisible" (mouseleave)="toggleForm()" (mouseenter)="toggleForm()" [ngClass]="{carre:!isCircle,circle:isCircle}">Si carre pas cercle</div>

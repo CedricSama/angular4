@@ -1,0 +1,18 @@
+<app-form [visible]="Editing"  [formFields]="formFields" [data]="curentTodo" (onSubmit)="submitFormData($event)"></app-form>
+<app-serch-box placeholder="Cherchez un TODO par titre" (onSearch)="getTodos($event)" (onClear)="ngOnInit()"></app-serch-box>
+<button (click)="openEmptyForm()">add</button>
+<app-datatable [data]="todosServices.todosList" [fields]="fieldsTodos"  (deleteAction)="functionDeleteTodo($event)" (editAction)="functionEditTodo($event)"></app-datatable>
+<todos>
+    <todo *ngFor="let todo of todosServices.todosList"
+          [id]="todo.id"
+          [title]="todo.title"
+          [body]="todo.body"></todo>
+</todos>
+
+
+
+
+
+
+
+

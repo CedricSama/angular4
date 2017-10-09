@@ -1,0 +1,5 @@
+<p>
+  <!--<input  type="text" placeholder="ecrivez votre texte ici" (keyup)="$event.keyCode == 13 ? MyFunc(input) : null" #input>-->
+
+  <input type="text" [placeholder]="placeHolder" (keyup)="onkeyup($event, input)" #input>
+</p>

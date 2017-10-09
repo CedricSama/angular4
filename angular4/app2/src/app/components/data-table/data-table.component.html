@@ -1,0 +1,11 @@
+<table class="bordered">
+    <thead>
+    <tr>
+        <td *ngFor="let field of fields">{{ field }}</td><td>Actions<td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr hoverable ayoub *ngFor="let row of dataVar"><td  *ngFor="let field of fields">   {{ GetFieldValie(row, field) }} </td> <td><button (click)="editClicked(row)">E</button><button (click)="deleteClicked(row)">X</button></td></tr>
+    </tbody>
+</table>

@@ -1,0 +1,4 @@
+<app-serch-box placeholder="Cherchez un TODO par titre" (onSearch)="getTodos($event)" (onClear)="ngOnInit()"></app-serch-box>
+
+
+<app-datatable [data]="dataTodos" [fields]="fieldsTodos"></app-datatable>
